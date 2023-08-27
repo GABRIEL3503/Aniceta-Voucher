@@ -37,7 +37,7 @@ color: rgb(56, 56, 56);
         // Primera vez que el usuario accede
         Swal.fire(
           'Felicidades!',
-          '🎁Voucher valido por <strong>un remeron a elección<strong>🎁',
+          '<span style="font-size: 30px;">🎁Voucher valido por <strong>un remeron a elección<strong>🎁 </span>',
           'success',
           'width: 500px'
         );
@@ -45,12 +45,12 @@ color: rgb(56, 56, 56);
         localStorage.setItem('isFirstTime', 'no');
     } else {
         // Usuario ya ha visitado antes
-        Swal.fire({
-  title: 'Lo siento!',
-  text: 'Este voucher ya fue entregado.',
-  icon: 'error',
-  width: '500px' // Establece el ancho de la alerta aquí
-});
+        Swal.fire(
+ 'Lo siento!',
+   '<span style="font-size: 30px;">Este voucher ya fue entregado.</span>',
+  'error',
+ '900px' // Establece el ancho de la alerta aquí
+);
     }
     </script>
 </html>
