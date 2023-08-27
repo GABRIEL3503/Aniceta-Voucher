@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Voucher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Raleway:wght@500;600;700;800&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+  <style>
+    body{
+        width: 100%;
+  height: 100vh;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+        background-image: url(Diseño\ sin\ título\ \(6\).png);
+    }
+  h1 {font-family: 'Oswald', sans-serif;
+
+font-family: 'Roboto', sans-serif;
+color: rgb(56, 56, 56);
+    text-align: center;
+    margin-top: 50px;
+}
+</style>  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <h1>Bienvenid@s al sistema de Vouchers de ANICETA</h1>
+</body>
+<script > // Verificar si es la primera vez que el usuario accede a la página
+    let isFirstTime = localStorage.getItem('isFirstTime');
+    
+    if (isFirstTime === null) {
+        // Primera vez que el usuario accede
+        Swal.fire(
+          'Felicidades!',
+          'Voucher valido por <strong>un remeron a elección<strong>',
+          'success'
+        );
+        // Marcar como ya visitado para la próxima vez
+        localStorage.setItem('isFirstTime', 'no');
+    } else {
+        // Usuario ya ha visitado antes
+        Swal.fire(
+          'Lo siento!',
+          'Este premio ya fue entregado.',
+          'error'
+        );
+    }
+    </script>
+</html>
