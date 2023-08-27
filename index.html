@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Raleway:wght@500;600;700;800&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
   <style>
-    body{
+    .mi-elemento-con-fondo{
         width: 100%;
   height: 100vh;
 
@@ -25,7 +25,10 @@ color: rgb(56, 56, 56);
 </style>  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <h1>Bienvenid@s al sistema de Vouchers de ANICETA</h1>
+    <div class="mi-elemento-con-fondo">
+        <h1>Bienvenid@s al sistema de Vouchers de ANICETA</h1>     
+     </div>
+   
 </body>
 <script > // Verificar si es la primera vez que el usuario accede a la página
     let isFirstTime = localStorage.getItem('isFirstTime');
@@ -35,7 +38,8 @@ color: rgb(56, 56, 56);
         Swal.fire(
           'Felicidades!',
           '🎁Voucher valido por <strong>un remeron a elección<strong>🎁',
-          'success'
+          'success',
+          'width: 500px'
         );
         // Marcar como ya visitado para la próxima vez
         localStorage.setItem('isFirstTime', 'no');
@@ -43,8 +47,9 @@ color: rgb(56, 56, 56);
         // Usuario ya ha visitado antes
         Swal.fire(
           'Lo siento!',
-          'Este voucher ya fue entregado.',
-          'error'
+          'Este voucher ya fue entregado.' ,
+          'error',
+          'width: 500px'
         );
     }
     </script>
