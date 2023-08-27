@@ -45,12 +45,12 @@ color: rgb(56, 56, 56);
         localStorage.setItem('isFirstTime', 'no');
     } else {
         // Usuario ya ha visitado antes
-        Swal.fire(
-          'Lo siento!',
-          'Este voucher ya fue entregado.' ,
-          'error',
-          'width: 500px'
-        );
+        Swal.fire({
+  title: 'Lo siento!',
+  text: 'Este voucher ya fue entregado.',
+  icon: 'error',
+  width: '500px' // Establece el ancho de la alerta aquí
+});
     }
     </script>
 </html>
