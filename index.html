@@ -14,6 +14,12 @@
   background-repeat: no-repeat;
   background-position: center;
         background-image: url(Diseño\ sin\ título\ \(6\).png);
+        
+    }
+    
+    div:where(.swal2-container).swal2-center>.swal2-popup{
+      width: 80%;
+      height: 77%;
     }
   h1 {font-family: 'Oswald', sans-serif;
 
@@ -22,6 +28,15 @@ color: rgb(56, 56, 56);
     text-align: center;
     margin-top: 50px;
 }
+#swal2-title{
+      font-size: 76px;
+    }
+    .swal2-html-container{
+      font-size: 33px;
+    }
+    .swal2-confirm{
+      font-size: 2em;
+    }
 </style>  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -30,27 +45,39 @@ color: rgb(56, 56, 56);
      </div>
    
 </body>
-<script > // Verificar si es la primera vez que el usuario accede a la página
-    let isFirstTime = localStorage.getItem('isFirstTime');
-    
-    if (isFirstTime === null) {
-        // Primera vez que el usuario accede
-        Swal.fire(
-          'Felicidades!',
-          '<span style="font-size: 30px;">🎁Voucher valido por <strong>un remeron a elección<strong>🎁 </span>',
-          'success',
-          'width: 500px'
-        );
-        // Marcar como ya visitado para la próxima vez
-        localStorage.setItem('isFirstTime', 'no');
-    } else {
-        // Usuario ya ha visitado antes
-        Swal.fire(
- 'Lo siento!',
-   '<span style="font-size: 30px;">Este voucher ya fue entregado.</span>',
-  'error',
- '900px' // Establece el ancho de la alerta aquí
-);
-    }
-    </script>
+<script>
+  // Verificar cuántas veces el usuario ha accedido a la página
+  let visitCount = localStorage.getItem('visitCount');
+  
+  if (visitCount === null) {
+      // Primera vez que el usuario accede
+      Swal.fire(
+        'Felicidades!',
+        '<span style="font-size: 30px;">🎁Voucher valido por <strong>Body a elección<strong>🎁 </span>',
+        'success',
+        'width: 500px'
+      );
+      // Marcar como primera visita
+      localStorage.setItem('visitCount', 1);
+  } else if (visitCount < 2) {
+      // Segunda visita
+      Swal.fire(
+        'Felicidades de nuevo!',
+        '<span style="font-size: 30px;">🎁Voucher valido por <strong>Body a elección<strong>🎁 </span>',
+        'success',
+        'width: 500px'
+      );
+      // Incrementar el contador de visitas
+      localStorage.setItem('visitCount', Number(visitCount) + 1);
+  } else {
+      // Usuario ya ha visitado más de dos veces
+      Swal.fire({
+        title: 'Lo siento!',
+        html: '<span style="font-size: 30px;">Este voucher ya fue entregado.</span>',
+        icon: 'error',
+        width: '100vw'
+      });
+  }
+</script>
+
 </html>
